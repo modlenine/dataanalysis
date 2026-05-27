@@ -33,12 +33,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  **/
+#[AllowDynamicProperties]
 class MX_Loader extends CI_Loader
 {
-	protected $_module;
+        protected $_module;
 
-	public $_ci_plugins = array();
-	public $_ci_cached_vars = array();
+        public $_ci_plugins = array();
+        public $_ci_cached_vars = array();
+        public $controller;
 
 	/** Initialize the loader variables **/
 	public function initialize($controller = NULL)
@@ -152,12 +154,12 @@ class MX_Loader extends CI_Loader
 	{
 		if (is_array($library)) return $this->libraries($library);
 
-		$class = strtolower(basename($library));
+		$class = strtolower(basename((string)$library));
 
 		if (isset($this->_ci_classes[$class]) && $_alias = $this->_ci_classes[$class])
 			return $this;
 
-		($_alias = strtolower($object_name)) OR $_alias = $class;
+		($_alias = strtolower((string)$object_name)) OR $_alias = $class;
 
 		list($path, $_library) = Modules::find($library, $this->_module, 'libraries/');
 

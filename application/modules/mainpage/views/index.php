@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Main page for data analysis program.</title>
-</head>
-<body>
-    <section id="slider" class="slider-element slider-parallax swiper_wrapper min-vh-60 min-vh-md-100 include-header">
+﻿<section id="slider" class="slider-element slider-parallax swiper_wrapper min-vh-60 min-vh-md-100 include-header">
 			<div class="slider-inner">
 
 				<div class="swiper-container swiper-parent">
@@ -37,7 +29,3 @@
 
 			</div>
 		</section>
-
-
-</body>
-</html>

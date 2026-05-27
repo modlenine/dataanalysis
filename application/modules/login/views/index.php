@@ -77,7 +77,7 @@
 						<span class="txt1">
 							Forgot
 						</span>
-						<a class="txt2" href="http://intranet.saleecolour.com/intsys/usermanage/resetpassword/index.php">
+						<a class="txt2" href="https://intranet.saleecolour.com/intsys/resetpassword">
 							Password?
 						</a>
 					</div>

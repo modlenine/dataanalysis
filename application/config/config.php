@@ -23,7 +23,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://intranet.saleecolour.com/intsys/data_analysis/';
+
+$_ci_host = explode(':', $_SERVER['HTTP_HOST'] ?? '')[0];
+$scheme = in_array($_ci_host, ['localhost', '127.0.0.1', '::1']) ? 'http' : 'https';
+unset($_ci_host);
+$config['base_url'] = $scheme . '://' . $_SERVER['HTTP_HOST'] . '/intsys/data_analysis/';
 
 /*
 |--------------------------------------------------------------------------
@@ -377,13 +381,21 @@ $config['encryption_key'] = 'l,6mixikdki';
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
 */
-$config['sess_driver'] = 'files';
-$config['sess_cookie_name'] = 'ci_session';
-$config['sess_expiration'] = 0;
-$config['sess_save_path'] = NULL;
-$config['sess_match_ip'] = FALSE;
-$config['sess_time_to_update'] = 300;
-$config['sess_regenerate_destroy'] = FALSE;
+$use_redis = FALSE;
+if ($use_redis) {
+    $config['sess_driver']          = 'redis';
+    $config['sess_cookie_name']     = 'ci_redis_session';
+    $config['sess_save_path']       = 'tcp://192.168.20.82:6379?auth=Admin1234&timeout=5.0';
+} else {
+    $config['sess_driver']          = 'database';
+    $config['sess_cookie_name']     = 'ci_session';
+    $config['sess_save_path']       = 'ci_sessions';
+    $config['sess_db_group']        = 'intranet';
+    $config['sess_expiration']      = 14400;
+    $config['sess_match_ip']        = FALSE;
+    $config['sess_time_to_update']  = 7200;
+    $config['sess_regenerate_destroy'] = FALSE;
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -401,7 +413,8 @@ $config['sess_regenerate_destroy'] = FALSE;
 |
 */
 $config['cookie_prefix']	= '';
-$config['cookie_domain']	= '';
+$_hostname = $_SERVER['HTTP_HOST'] ?? '';
+$config['cookie_domain']	= (strpos($_hostname, 'saleecolour.net') !== FALSE) ? '.saleecolour.net' : '';
 $config['cookie_path']		= '/';
 $config['cookie_secure']	= FALSE;
 $config['cookie_httponly'] 	= FALSE;

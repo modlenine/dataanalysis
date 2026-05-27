@@ -61,10 +61,10 @@ class Production_model extends CI_Model
 
         // SQL server connection information
         $sql_details = array(
-            'user' => 'chainarong',
-            'pass' => 'Admin1234',
+            'user' => 'aek',
+            'pass' => 'Aek1234',
             'db'   => 'data_analysis',
-            'host' => '192.190.2.3'
+            'host' => 'localhost:3307'
         );
 
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

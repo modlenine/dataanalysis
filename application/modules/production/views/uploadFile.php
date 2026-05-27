@@ -113,7 +113,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <label for="">กรุณาเลือกเดือนของข้อมูล</label>
-                                        <input type="text" name="month_sln" id="month_sln" value="" class="form-control text-left component-datepicker mnth" placeholder="MM-YYYY">
+                                        <input type="text" name="month_sln" id="month_sln" value="" class="form-control text-left component-datepicker mnth" placeholder="MM-YYYY" required>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>
@@ -153,7 +153,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <label for="">กรุณาเลือกเดือนของข้อมูล</label>
-                                        <input type="text" name="month_ca" id="month_ca" value="" class="form-control text-left component-datepicker mnth" placeholder="MM-YYYY">
+                                        <input type="text" name="month_ca" id="month_ca" value="" class="form-control text-left component-datepicker mnth" placeholder="MM-YYYY" required>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>
@@ -191,7 +191,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
                                         <label for="">กรุณาเลือกเดือนของข้อมูล</label>
-                                        <input type="text" name="month_poly" id="month_poly" value="" class="form-control text-left component-datepicker mnth" placeholder="MM-YYYY">
+                                        <input type="text" name="month_poly" id="month_poly" value="" class="form-control text-left component-datepicker mnth" placeholder="MM-YYYY" required>
                                     </div>
                                     <div class="col-md-4"></div>
                                 </div>

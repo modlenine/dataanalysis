@@ -12,8 +12,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-$hook['post_controller_constructor'] = array(
-    "class" => "onload",
+$hook['pre_controller'] = array(
+    "class"    => "Onload",
     "function" => "checklogin",
     "filename" => "onload.php",
     "filepath" => "hooks"

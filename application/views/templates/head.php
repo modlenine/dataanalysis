@@ -19,11 +19,7 @@
 
 	<link rel="stylesheet" href="<?= base_url('assets/') ?>css/custom.css" type="text/css" />
 
-	<script src="<?= base_url('assets/') ?>js/jquery.min.js"></script>
-
-	<script src="<?= base_url('asset/') ?>js/control.js"></script>
-	<script src="<?= base_url('asset/') ?>js/function.js"></script>
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 
 	<!-- Document Title
 	============================================= -->
@@ -100,6 +96,9 @@
             font-size: .85rem !important;
         }
 	</style>
+
+    <!-- jQuery (โหลดก่อน view scripts) -->
+    <script src="<?= base_url('assets/') ?>js/jquery.js"></script>
 
 </head>
 <?=getmodal()?>
@@ -278,7 +277,3 @@
 			</div>
 			<div class="header-wrap-clone"></div>
 		</header><!-- #header end -->
-
-</body>
-
-</html>

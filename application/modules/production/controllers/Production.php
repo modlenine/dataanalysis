@@ -659,7 +659,7 @@ class Production extends MX_Controller
                         // check duplicate data when upload
                         $enddate = conDate($data[20]);
                         $pdid = $data[2];
-                        $areaid = 'sln';
+                        $areaid = "sln";
 
 
                         // echo checkDuplicateData($pdid , $enddate , $areaid)->num_rows();
@@ -734,7 +734,7 @@ class Production extends MX_Controller
                         // check duplicate data when upload
                         $enddate = conDate($data[20]);
                         $pdid = $data[2];
-                        $areaid = 'ca';
+                        $areaid = "ca";
 
                         // echo checkDuplicateData($pdid , $enddate , $areaid)->num_rows();
                         if(checkDuplicateData($pdid , $enddate , $areaid)->num_rows() == 0){
@@ -808,10 +808,10 @@ class Production extends MX_Controller
                         // check duplicate data when upload
                         $enddate = conDate($data[20]);
                         $pdid = $data[2];
-                        $areaid = 'poly';
+                        $areaid = "poly";
 
 
-                        // echo checkDuplicateData($pdid , $enddate , $areaid)->num_rows();
+
                         if(checkDuplicateData($pdid , $enddate , $areaid)->num_rows() == 0){
                             if($pdid != ""){
                                 $this->db->insert("loss_on_process", $arupdate);

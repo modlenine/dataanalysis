@@ -328,7 +328,13 @@ function getYearGraph8()
 function getMonthGraph8()
 {
     $monthcur = date("m");
-    $monthcon = intval($monthcur)-1;
+    
+    if($monthcur == "01"){
+        $monthcon = $monthcur;
+    }else{
+        $monthcon = intval($monthcur)-1;
+    }
+
     $sql = getuse()->db->query("SELECT ls_data_month FROM loss_on_process GROUP BY ls_data_month ORDER BY ls_data_month DESC");
     $out = "";
     $out .="<option value='".$monthcon."'>".$monthcon."</option>";

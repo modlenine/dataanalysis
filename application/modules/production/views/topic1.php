@@ -1,22 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{title}</title>
-
-
-
-    <script src="https://code.highcharts.com/highcharts.js"></script>
-    <script src="https://code.highcharts.com/modules/series-label.js"></script>
-    <script src="https://code.highcharts.com/modules/exporting.js"></script>
-    <script src="https://code.highcharts.com/modules/export-data.js"></script>
-    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
-
-</head>
-
-<body>
     <!-- Content
 		============================================= -->
     <section id="content">
@@ -116,9 +97,13 @@
 
         </div>
     </section><!-- #content end -->
-</body>
 
-</html>
+    <!-- Highcharts scripts -->
+    <script src="<?=base_url('assets/js/custom/highcharts.js')?>"></script>
+    <script src="<?=base_url('assets/js/custom/series-label.js')?>"></script>
+    <script src="<?=base_url('assets/js/custom/exporting.js')?>"></script>
+    <script src="<?=base_url('assets/js/custom/export-data.js')?>"></script>
+    <script src="<?=base_url('assets/js/custom/accessibility.js')?>"></script>
 
 <script>
     $(document).ready(function() {
