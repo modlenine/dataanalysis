@@ -60,11 +60,23 @@ class Production_model extends CI_Model
         );
 
         // SQL server connection information
+        $host = explode(':', $_SERVER['HTTP_HOST'] ?? '')[0];
+        $is_local = in_array($host, ['localhost', '127.0.0.1', '::1']);
+        if ($is_local) {
+            $mysqlServer         = 'localhost:3307';
+            $username            = 'aek';
+            $password            = 'Aek1234';
+        } else {
+            $mysqlServer         = '192.168.20.36';
+            $username            = 'pdintra';
+            $password            = 'Pdin1234';
+        }
+
         $sql_details = array(
-            'user' => 'aek',
-            'pass' => 'Aek1234',
+            'user' => $username,
+            'pass' => $password,
             'db'   => 'data_analysis',
-            'host' => 'localhost:3307'
+            'host' => $mysqlServer
         );
 
         /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *

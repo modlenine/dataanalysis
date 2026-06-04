@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 class Onload
 {
     private $ci;
@@ -25,7 +25,22 @@ class Onload
         if (empty($ecode)) {
             // �ѧ����� login - redirect � Intranet login
             if ($controller !== 'login') {
-                $scheme      = $_SERVER['REQUEST_SCHEME'] ?? 'http';
+                                // ตรวจ scheme จาก reverse proxy headers ด้วย (ป้องกัน http/https mismatch)
+                $scheme = 'http';
+                if (
+                    ( ! empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ||
+                    ( ! empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https') ||
+                    ( ! empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] === 'on') ||
+                    ( ! empty($_SERVER['REQUEST_SCHEME']) && $_SERVER['REQUEST_SCHEME'] === 'https') ||
+                    ( ! empty($_SERVER['SERVER_PORT']) && (int) $_SERVER['SERVER_PORT'] === 443)
+                ) {
+                    $scheme = 'https';
+                }
+                // non-local environments บังคับ https เสมอ
+                $_msd_host = explode(':', $hostname)[0];
+                if ( ! in_array($_msd_host, ['localhost', '127.0.0.1', '::1'])) {
+                    $scheme = 'https';
+                }
                 $hostname    = $_SERVER['HTTP_HOST'] ?? '';
                 $current_url = $_SERVER['REQUEST_URI'];
 
@@ -38,7 +53,7 @@ class Onload
                 }
 
                 if (strpos($hostname, 'saleecolour.net') !== false) {
-                    $intranet_login = 'http://ofintranet.saleecolour.net/intranet/login' . $return_param;
+                    $intranet_login = 'https://ofintranet.saleecolour.net/intranet/login' . $return_param;
                 } else {
                     $intranet_login = $scheme . '://' . $hostname . '/intranet/login' . $return_param;
                 }
